@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgriFlow FMCG Complete RBAC Admin</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="toastRoot" class="toast-root"></div>
+
+  <section id="loginScreen" class="login-screen">
+    <div class="login-visual">
+      <div class="visual-layer sun"></div>
+      <div class="visual-layer farm-road"></div>
+      <div class="visual-layer factory"></div>
+      <div class="visual-copy">
+        <span class="badge badge-success">Live FMCG Manufacturing</span>
+        <h1>AgriFlow Sector RBAC Control Center</h1>
+        <p>Login as Main Admin, Sub Admin, or Sector Admin. Every menu, report, action and approval is controlled by permission.</p>
+      </div>
+    </div>
+
+    <div class="login-card card">
+      <div class="brand-line">
+        <div class="brand-logo">A</div>
+        <div>
+          <h2>Admin Login</h2>
+          <p>Use password <b>password123</b> for demo testing.</p>
+        </div>
+      </div>
+      <form id="loginForm" class="form-stack">
+        <label>User Account
+          <select id="loginUser"></select>
+        </label>
+        <label>Password
+          <input id="loginPassword" type="password" value="password123" required />
+        </label>
+        <button class="btn btn-primary full" type="submit">Login</button>
+      </form>
+      <div class="info-box">
+        <strong>RBAC Rules</strong>
+        <span>Sector Admin can create/add in own sector. Edit/delete/change requires Main Admin approval unless permission is granted.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="appShell" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo small">A</div>
+        <div>
+          <h3>AgriFlow</h3>
+          <span id="sidebarRole">Main Admin</span>
+        </div>
+      </div>
+      <div class="nav-label">Allowed Panel</div>
+      <nav id="mainNav" class="main-nav"></nav>
+      <div class="sidebar-note" id="permissionSummary"></div>
+      <button id="logoutBtn" class="btn btn-ghost full">Logout</button>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button id="mobileMenuBtn" class="btn btn-ghost icon-btn">☰</button>
+        <div class="topbar-title">
+          <h2 id="pageTitle">Dashboard</h2>
+          <p id="pageSubtitle">Sector-wise live admin panel.</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn btn-ghost" id="liveToggle">Pause Live</button>
+          <button class="btn btn-ghost" id="quickActionBtn">Quick Action</button>
+          <button class="btn btn-primary" id="reportShortcutBtn">Reports</button>
+          <div class="user-chip">
+            <span id="userInitial">A</span>
+            <div><b id="userName">Admin</b><small id="userType">Main Admin</small></div>
+          </div>
+        </div>
+      </header>
+      <section class="content" id="content"></section>
+    </main>
+  </section>
+
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h3 id="modalTitle">Modal</h3>
+          <p id="modalSubtitle">Action panel</p>
+        </div>
+        <button class="btn btn-ghost icon-btn" id="modalClose">×</button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
